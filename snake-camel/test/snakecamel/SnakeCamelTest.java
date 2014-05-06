@@ -47,4 +47,5 @@ public class SnakeCamelTest {
 		String actual = snak.camelToSnakecase("KumiKumiKumi");
 		assertThat(actual, is(expected));	
 	}
+	//ƒeƒXƒg
 }
