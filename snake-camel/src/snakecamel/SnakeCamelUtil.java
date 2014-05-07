@@ -6,7 +6,8 @@ public class SnakeCamelUtil {
 		String[] words = snake_case.split("_");
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < words.length; i++) {
-			sb.append(capitalize(words[i]));
+			if(!words[i].equals(""))   //‹ó”’•¶š‚¾‚Á‚½ê‡‚Ì—áŠO’Ç‰Á
+				sb.append(capitalize(words[i]));
 		}
 		return new String(sb);
 	}
@@ -17,7 +18,9 @@ public class SnakeCamelUtil {
 		for (int i = 0; i < camelcase.length(); i++) {
 			char c = camelcase.charAt(i);
 			if (Character.isUpperCase(c)) {
-				sb.append(camelcase.substring(j, i));
+				if(i!=j){
+					sb.append(camelcase.substring(j+1, i)); //j ‚ğ j+1 ‚É•ÏX
+				}
 				if (sb.length() > 0) {
 					sb.append("_");
 				}
@@ -25,7 +28,7 @@ public class SnakeCamelUtil {
 				j = i;
 			}
 		}
-		sb.append(camelcase.substring(j));
+		sb.append(camelcase.substring(j+1)); //j ‚ğ j+1 ‚É•ÏX
 		return new String(sb);
 	}
 	
